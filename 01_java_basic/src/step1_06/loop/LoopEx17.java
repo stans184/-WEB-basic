@@ -3,7 +3,7 @@ package step1_06.loop;
 import java.util.Scanner;
 
 /*
- *  # 보조 제어문
+ *  # 보조 제어문 (break, continue)
  * 
  * 	- 반복문 안에서만 동작한다.
  *  - 반복문 안에서 반복문의 역할을 보조한다.

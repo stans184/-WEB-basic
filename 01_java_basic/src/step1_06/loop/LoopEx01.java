@@ -1,6 +1,6 @@
 package step1_06.loop;
 /*
- *  # 반복문 while
+ *  # 반복문 'while'
  *  
  *  [ 형식 ]
  *  
