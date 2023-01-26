@@ -1,7 +1,6 @@
 package step1_06.loop;
 
 import java.util.Scanner;
-
 /*
  * (while문)
  * 
@@ -24,22 +23,39 @@ import java.util.Scanner;
  * 입력 : -1
  * 
  * 결과 : key값 7가 첫번재 나타난 것은 2번째 이다.
- * 
  */
-
-
-
 public class LoopEx33_테스트문제 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
         
 		System.out.print("key값 입력 : ");
-		int key = scan.nextInt();
- 
+		int key = sc.nextInt();
+		
+		int i = 1;
+		int keyI = 100000;
+		
+		while (true) {
+			System.out.print("Enter number : ");
+			int num = sc.nextInt();
+			
+			if (num == key) {
+				int tempI = i;
+				if (tempI < keyI) {
+					keyI = tempI;
+				}
+			}
+			
+			if (num == -1) break;
+			
+			i += 1;
+			
+		}
+		
+		System.out.println("key 값 " + key + " 가 처음 나타난 순서는 " + keyI + " 입니다.");
 
-		scan.close();
+		sc.close();
 	}
 
 }

@@ -1,7 +1,6 @@
 package step1_06.loop;
 
 import java.util.Random;
-
 /*
  * # 랜덤학생
  * 

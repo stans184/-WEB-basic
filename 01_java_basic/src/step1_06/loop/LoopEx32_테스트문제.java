@@ -20,12 +20,31 @@ public class LoopEx32_테스트문제 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("Enter Number ? ");
-		int getNumber = scan.nextInt();
+		int getNumber = sc.nextInt();
+		int testNumber = getNumber;
 		
-		scan.close();
+		boolean isGo = true;
+		
+		while (isGo) {
+			// 큰 소수르 찾아간다
+			int cnt = 0;
+			
+			for (int i = 2; i < testNumber; i++) {
+				if (testNumber%i == 0) cnt += 1;
+			}
+			
+			if (cnt == 0) {
+				System.out.println(getNumber + " 보다 큰 첫번째 소수는 " + testNumber);
+				break;
+			}
+			
+			testNumber += 1;
+		}
+		
+		sc.close();
 		
 	}
 

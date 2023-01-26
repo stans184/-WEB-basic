@@ -24,7 +24,21 @@ package step1_06.loop;
 public class LoopEx31_테스트문제 {
 
 	public static void main(String[] args) {
-
+		
+		
+		
+		// 3)
+		int cnt3 = 0;
+		
+		for (int i = 50; i <= 100; i++) {
+			if (i%9 == 0) cnt3 += 1;
+		}
+		System.out.println(cnt3);
+		
+		// 5)
+		for (int i = 0; i < 5; i++) {
+			System.out.print(8*i + ", ");
+		}
 	}
 
 }

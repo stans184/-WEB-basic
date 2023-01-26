@@ -1,5 +1,6 @@
 package step1_06.loop;
 
+import javax.security.sasl.RealmChoiceCallback;
 
 // # 삼각형 그리기
 
@@ -82,11 +83,11 @@ public class LoopEx28_문제 {
 		 */
 		
 		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print(" ");
+			}
 			for (int j = 1; j <= 3-i; j++) {
 				System.out.print("#");
-			}
-			for (int j = 0; j <= i; j++) {
-				System.out.print(" ");
 			}
 			System.out.println();
 		}
@@ -99,7 +100,17 @@ public class LoopEx28_문제 {
 		 * @@#
 		 * @@@
 		 */
-
+		
+		for (int i = 1; i <= 3; i++) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print("@");
+			}
+			for (int j = 1; j <= 3-i; j++) {
+				System.out.print("#");
+			}
+			System.out.println();
+		}
+		System.out.println();
 		
 		/*
 		 * 문제 6)
@@ -111,12 +122,17 @@ public class LoopEx28_문제 {
 		int k = 1;
 		
 		for (int i = 1; i <= 3; i++) {
-			for (int j = 1; j < 3-i; j++) {
+			for (int j = 1; j <= 4-i; j++) {
 				System.out.print(" ");
 			}
-			
+			for (int j = 1; j <= k; j++) {
+				System.out.print("#");
+			}
+			k += 2;
+			System.out.println();
 		}
-
+		System.out.println();
+		
 		/*
 		 * 문제 7)
 		 *  #####
@@ -124,7 +140,19 @@ public class LoopEx28_문제 {
 		 *    #
 		 */
 
+		int z = 5;
 		
+		for (int i = 1; i <= 3; i++) {
+			for (int j = 0; j <= i-1; j++) {
+				System.out.print(" ");
+			}
+			for (int j = 1; j <=z; j++) {
+				System.out.print("#");
+			}
+			z-=2;
+			System.out.println();
+		}
+		System.out.println();
 		
 	}
 }
