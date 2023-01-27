@@ -1,7 +1,5 @@
 package step1_06.loop;
 
-import javax.security.sasl.RealmChoiceCallback;
-
 // # 삼각형 그리기
 
 public class LoopEx28_문제 {

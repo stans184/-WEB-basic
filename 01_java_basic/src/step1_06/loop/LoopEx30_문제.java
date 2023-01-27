@@ -1,7 +1,5 @@
 package step1_06.loop;
 
-import java.util.Iterator;
-
 /*
  * # 2차원 반복문
  * 

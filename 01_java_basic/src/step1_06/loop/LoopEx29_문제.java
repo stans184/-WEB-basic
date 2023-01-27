@@ -30,6 +30,8 @@ public class LoopEx29_문제 {
 			if (cnt == 0) System.out.print(i + " ");
 		}
 		
+		sc.close();
+		
 	}
 	
 }
