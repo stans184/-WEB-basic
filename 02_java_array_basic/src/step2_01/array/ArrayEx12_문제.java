@@ -6,7 +6,7 @@ import java.util.Scanner;
 /*
  * # 값 교체하기[2단계] 
  */
-// 1/30 14:22 ~ 
+// 1/30 14:22 ~ 15:00
 public class ArrayEx12_문제 {
 
 	public static void main(String[] args) {
@@ -69,12 +69,25 @@ public class ArrayEx12_문제 {
 		System.out.print("학번2 입력 : ");
 		int inId2 = sc.nextInt();
 		
+		int targetidx3 = 0;
+		int targetidx4 = 0;
+		
 		for (int i = 0; i < scores.length; i++) {
 			if (inId1 == studentId[i]) {
-				
+				targetidx3 = i;
+			}
+			if (inId2 == studentId[i]) {
+				targetidx4 = i;
 			}
 		}
 		
+		int tmp3 = scores[targetidx3];
+		scores[targetidx3] = scores[targetidx4];
+		scores[targetidx4] = tmp3;
+		
+		System.out.println(Arrays.toString(scores));
+		
+		sc.close();
 	}
 	
 }

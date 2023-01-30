@@ -30,7 +30,7 @@ public class ArrayEx15_문제 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		Random ran = new Random();
 		
 		int[] front = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};

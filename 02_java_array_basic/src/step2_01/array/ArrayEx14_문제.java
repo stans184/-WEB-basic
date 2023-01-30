@@ -18,7 +18,7 @@ public class ArrayEx14_문제 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		int[] game = {0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		int player = 0;
