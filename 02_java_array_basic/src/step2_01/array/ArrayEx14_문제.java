@@ -21,14 +21,49 @@ public class ArrayEx14_문제 {
 		Scanner sc = new Scanner(System.in);
 		
 		int[] game = {0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		int player = 0;
+//		int player = 0;
 		
-		for (int i=0; i < game.length; i++) {
-			if (game[i] == 2) {
-				player = i;
+		while (true) {
+			// player 현재 위치 출력 방식 
+			// __________옷____
+			for (int num : game) {
+				if (num == 2) System.out.print("P");
+				else System.out.print("_");
+			}
+			System.out.println();
+			
+			System.out.print("Left (1), Right (2), Exit (3) -> ");
+			int destination = sc.nextInt();
+			
+			if (destination == 3) {
+				System.out.println("Exit");
+				break;
+			}
+			else if (destination == 1) {
+				// 현재 p 위치를 파악하고
+				for (int i = 0; i < game.length; i++) {
+					if (game[i] == 2 && (i-1) >= 0) {
+						game[i] = 0;
+						game[i-1] = 2;
+						break;
+					}
+				}
+				
+				// index 하나 뺀 위치에다가 P를 넣고
+				// 원래 P 위치는 0으로 대체
+			}
+			else if (destination == 2) {
+				for (int i = 0; i < game.length; i++) {
+					if (game[i] == 2 && (i+1) <= 14) {
+						game[i] = 0;
+						game[i+1] = 2;
+						break;
+					}
+				}
 			}
 		}
-				
+		
+		sc.close();
 	}
 	
 }

@@ -31,7 +31,7 @@ public class ArrayEx15_문제 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		Random ran = new Random();
+		Random rm = new Random();
 		
 		int[] front = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
 		int[] back = new int[10];
@@ -39,7 +39,7 @@ public class ArrayEx15_문제 {
 		
 		// 셔플 구현(Shuffle) : 배열의 요소들을 무작위로 섞음
 		while (cnt < 1000) {			
-			int tempRan = ran.nextInt(9) + 1;
+			int tempRan = rm.nextInt(9) + 1;
 			int temp = front[0]; 
 			front[0] = front[tempRan];
 			front[tempRan] = temp;
