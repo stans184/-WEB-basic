@@ -2,7 +2,6 @@ package step2_01.array;
 
 import java.util.Random;
 import java.util.Scanner;
-
 /*
  * # 기억력 게임
  * 
@@ -18,7 +17,6 @@ import java.util.Scanner;
  * front = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
  * back  = [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
  */
-
 public class ArrayEx15_정답예시 {
 
 	public static void main(String[] args) {
