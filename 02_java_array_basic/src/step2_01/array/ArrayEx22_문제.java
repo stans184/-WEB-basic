@@ -1,5 +1,6 @@
 package step2_01.array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -27,12 +28,55 @@ public class ArrayEx22_문제 {
 		
 		while (true) {
 			
-			System.out.println("\n1추가");
-			System.out.println("2삭제");
-			System.out.println("3삽입");
-			System.out.println("4종료\n");
-			System.out.print("입력 : ");
+			System.out.println("\n1 Add");
+			System.out.println("2 Delete");
+			System.out.println("3 Insert");
+			System.out.println("4 Exit\n");
+			System.out.print("Select the Menu : ");
 			selectMenu = sc.nextInt();
+			
+			if (selectMenu == 1) {
+				System.out.print("Enter the number to add : ");
+				int addNum = sc.nextInt();
+				
+				if (elementCnt == 5) {
+					System.out.println("Cannot Add, Full memory");
+					break;
+				}
+				
+				arr[elementCnt] = addNum;
+				elementCnt += 1;
+				break;
+				
+				System.out.println(Arrays.toString(arr));
+			}
+			
+			else if [] == 2) {
+				System.out.print("Enter the number to delete : ");
+				int delNum = sc.nextInt();
+				
+				int delIdx = -1;
+				for (int i = 0; i < arr.length; i++) {
+					if (delNum == arr[i]) { 
+						delIdx = i;
+					}
+				}
+				
+				if (delIdx == -1) {
+					System.out.println("Not Exist");
+				}else {
+					elementCnt -= 1;
+					
+					for (int i = delIdx; i <= elementCnt-1; i++) {
+						arr[i] = arr[i+1];
+					}
+					System.out.println();
+					for (int i = 0; i < elementCnt; i++) {
+						System.out.print(arr[i] + " ");
+					}
+					System.out.println();
+				}
+			}
 			
 		}
 	}

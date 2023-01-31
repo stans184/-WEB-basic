@@ -45,14 +45,30 @@ public class ArrayEx15_문제 {
 			cnt++;
 		}
 		
-		while (true) {
+		int gameCnt = 0;
+		
+		while (gameCnt < 5) {
 			
 			System.out.println(Arrays.toString(front));
-			
 			System.out.println(Arrays.toString(back));
 			
-		}
+			System.out.print("Enter the number1 : ");
+			int inIdx1 = sc.nextInt() - 1;
+			int outNum1 = front[inIdx1];
 			
+			System.out.print("Enter the number1 : ");
+			int inIdx2 = sc.nextInt() - 1;
+			int outNum2 = front[inIdx2];
+			
+			if (outNum1 == outNum2) {
+				back[inIdx1] = outNum1;
+				back[inIdx2] = outNum1;
+				gameCnt += 1;
+			}
+			
+		}
+		System.out.println("Game Finished");
+		sc.close();
 	}
 	
 }

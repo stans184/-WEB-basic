@@ -49,49 +49,52 @@ public class ArrayEx17_문제 {
 				
 				playerCnt -= 1;
 			}
-		}
-		
-		// 승리자 판별
-		int winner = 0;
-		// (1,2,3) (4,5,6) (7,8,9) (1,4,7) (2,5,8) (3,6,9) (1,5,9) (3,5,7)
-		// 0 1 2
-		// 3 4 5
-		// 6 7 8
-		for (int i = 0; i <= 6; i+=3) {
-			if (game[i] == game[i+1] && game[i] == game[i+2]) {
-				if (game[i] == 1) winner = 1;
-				else if (game[i] == 2) winner = 2;
+			
+			for (int z = 0; z < game.length; z++) {
+				if (game[z] == 1) System.out.print("[O]");
+				else if (game[z] == 2) System.out.print("[X]");
+				else System.out.print("[ ]");
+				if ((z+1)%3 == 0) System.out.println();
+			}
+			// 승리자 판별
+			int winner = 0;
+			
+			for (int k = 0; k <= 6; k+=3) {
+				if (game[k] == game[k+1] && game[k] == game[k+2]) {
+					if (game[k] == 1) winner = 1;
+					else if (game[k] == 2) winner = 2;
+				}
+			}
+			
+			for (int k = 0; k < 3; k++) {
+				if (game[k] == game[k+3] && game[k] == game[k+6]) {
+					if (game[k] == 1) winner = 1;
+					else if (game[k] == 2) winner = 2;
+				}
+			}
+			
+			if (game[0] == game[4] && game[4] == game[8]) {
+				if (game[0] == 1) winner = 1;
+				else if (game[0] == 2) winner = 2;
+			}		
+			
+			if (game[2] == game[4] && game[4] == game[6]) {
+				if (game[2] == 1) winner = 1;
+				else if (game[2] == 2) winner = 2;
+			}
+			
+			if (winner == 1) {
+				System.out.println("Winner is 'Player 1'");
+				break;
+			}
+			else if (winner == 2) {
+				System.out.println("Winner is 'Player 2'");
+				break;
 			}
 		}
 		
-		for (int i = 0; i < 3; i++) {
-			if (game[i] == game[i+3] && game[i] == game[i+6]) {
-				if (game[i] == 1) winner = 1;
-				else if (game[i] == 2) winner = 2;
-			}
-		}
 		
-		if (game[0] == game[4] && game[4] == game[8]) {
-			if (game[0] == 1) winner = 1;
-			else if (game[0] == 2) winner = 2;
-		}		
-		
-		if (game[2] == game[4] && game[4] == game[6]) {
-			if (game[2] == 1) winner = 1;
-			else if (game[2] == 2) winner = 2;
-		}		
-		
-		// 게임 종료된 테이블 출력
-		for (int i = 0; i < game.length; i++) {
-			if (game[i] == 1) System.out.print("[O]");
-			else System.out.print("[X]");
-			if ((i+1)%3 == 0) System.out.println();
-		}
-		System.out.println();
-		
-		if (winner == 1) System.out.println("Winner is Player 1");
-		else if (winner == 2) System.out.println("Winner is Player 2");
-		else System.out.println("DRAW");
+		sc.close();
 	}
 		
 }
