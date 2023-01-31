@@ -1,8 +1,6 @@
 package step2_01.array;
 
 import java.util.Scanner;
-   
-
 
 /*
  * # 숫자이동[1단계]
