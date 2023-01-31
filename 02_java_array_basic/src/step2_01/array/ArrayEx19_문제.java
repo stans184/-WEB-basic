@@ -39,7 +39,6 @@ public class ArrayEx19_문제 {
 				
 				if (elementCnt == 5) {
 					System.out.println("더이상 추가 할 수 없습니다.");
-					
 					continue;
 				}
 				
