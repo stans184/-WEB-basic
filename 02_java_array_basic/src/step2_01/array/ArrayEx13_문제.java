@@ -35,6 +35,7 @@ public class ArrayEx13_문제 {
 			}
 		}
 		
+		System.out.print("temp = ");
 		System.out.println(Arrays.toString(temp));
 		
 	}

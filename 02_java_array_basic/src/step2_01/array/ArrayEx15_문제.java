@@ -1,8 +1,8 @@
 package step2_01.array;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
-
 /*
  * # 기억력 게임
  * 
@@ -25,7 +25,6 @@ import java.util.Scanner;
  * back  = [0, 0, 1, 0, 1, 2, 0, 2, 0, 0]
  * 
  */
-
 public class ArrayEx15_문제 {
 
 	public static void main(String[] args) {
@@ -45,16 +44,14 @@ public class ArrayEx15_문제 {
 			front[tempRan] = temp;
 			cnt++;
 		}
+		
+		while (true) {
 			
-		for (int i=0; i<front.length; i++) {
-			System.out.print(front[i] + " ");
-		}
-		System.out.println();
-		for (int i=0; i<front.length; i++) {
-			System.out.print(back[i] + " ");
-		}
-		System.out.println();
+			System.out.println(Arrays.toString(front));
 			
+			System.out.println(Arrays.toString(back));
+			
+		}
 			
 	}
 	
