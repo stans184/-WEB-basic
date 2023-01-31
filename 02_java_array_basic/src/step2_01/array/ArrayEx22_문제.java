@@ -48,10 +48,9 @@ public class ArrayEx22_문제 {
 				elementCnt += 1;
 				break;
 				
-				System.out.println(Arrays.toString(arr));
 			}
 			
-			else if [] == 2) {
+			else if (selectMenu == 2) {
 				System.out.print("Enter the number to delete : ");
 				int delNum = sc.nextInt();
 				
