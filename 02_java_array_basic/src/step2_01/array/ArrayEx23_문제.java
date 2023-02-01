@@ -29,10 +29,10 @@ public class ArrayEx23_문제 {
 		
 		while (isRun) {
 			
-			System.out.println("1.가입");
-			System.out.println("2.탈퇴");
-			System.out.println("3.종료");
-			System.out.print("메뉴 선택 : ");
+			System.out.println("1. Join");
+			System.out.println("2. WidthDrawal");
+			System.out.println("3. Exit");
+			System.out.print("Select Menu : ");
 			selectMenu = sc.nextInt();
 			
 			if		(selectMenu == 1) {
