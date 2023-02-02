@@ -58,6 +58,13 @@ public class ArrayEx36 {
 		System.out.println(tmp2);
 		System.out.println(tmp3);
 		
+		int[] testArr1 = {1,2,3,4,5};
+		int[][] testArr2 = {
+				{1,2,3,4,5},
+				{6,7,8,9,10},
+				{11,12,13,14,15}
+		};
+		
 		sc.close();
 	}
 }
