@@ -17,7 +17,7 @@ package step3_01.arrayAdvance;
  * 1)2)3)4) 반복
  */
 public class ArrayEx43_풀이1 {
-// 23.02.02 62번줄에서 Out of Bound error 발생
+// 23.02.02 62번줄에서 Out of Bound error 발생, 도저히 모르겠어서 일단 넘어감, 나중에 다시할때 확인
 	public static void main(String[] args) {
 		
 		int[][] map = new int[5][5];
