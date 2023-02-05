@@ -16,7 +16,7 @@ public class StringEx04 {
 		System.out.println("\n================");
 		// [2] 숫자 > 문자열 형변환
 		
-		// 2-1) + "" 사용											//	제일 쓰기 쉬워서, 가장 많이 사용
+		// 2-1) + "" 사용												//	제일 쓰기 쉬워서, 가장 많이 사용
 		int salary = 3000000;										//  javascript 에서도 동일한 방법으로 사용
 		String str1 = salary + "";
 		System.out.println(str1 + 50000);							//	300000050000
@@ -25,7 +25,7 @@ public class StringEx04 {
 		String str2 = Integer.toString(salary);
 		System.out.println(str1.equals(str2));						//	true
 		
-		// 2-3) String.valueOf(숫자) 사용							//  잘안씀
+		// 2-3) String.valueOf(숫자) 사용								//  잘안씀
 		String str3 = String.valueOf(salary);
 		System.out.println(str1.equals(str3));						//	true
 		

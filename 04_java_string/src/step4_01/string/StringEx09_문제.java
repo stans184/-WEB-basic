@@ -1,7 +1,7 @@
 package step4_01.string;
 
-import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 /*
  * # 타자연습 게임[1단계]
@@ -20,25 +20,42 @@ public class StringEx09_문제 {
 
 	public static void main(String[] args) {
 		
-		String[] words = {"java", "mysql", "jsp", "spring"};
-		boolean[] checker = {false, false, false, false};
-		String[] newTmp = new String[4];
+		Scanner sc = new Scanner(System.in);
 		Random rm = new Random();
+
+		String[] words = {"java", "mysql", "jsp", "spring"};
+		int[] rmCheck = new int[4];
+		String[] newWords = new String[4];
+		
+		// 4번되면 끝
 		int outCnt = 0;
 		
-		// 셔플로 섞는거부터 구현해야함
-		while (outCnt < 4) {
-			int num = rm.nextInt(4);
-			if (checker[num] != true) {
-				checker[num] = true;
-				newTmp[num] = words[num];
-				outCnt += 1;
+		// ex45 참고해서 만듦
+		for (int i = 0; i < rmCheck.length; i++) {
+			rmCheck[i] = rm.nextInt(4);
+			for (int j = 0; j < i; j++) {
+				if (rmCheck[i] == rmCheck[j]) i -= 1;
 			}
 		}
 		
-		System.out.println(Arrays.toString(newTmp));
+		// 섞어서 다시 저장
+		for (int i = 0; i < newWords.length; i++) {
+			newWords[i] = words[rmCheck[i]];
+		}
 		
+		while (outCnt < 4) {
+			System.out.print((outCnt + 1) + "번째 문제 : ");
+			String inWord = sc.next();
+			
+			if (newWords[outCnt].equals(inWord)) {
+				System.out.println("정답");
+				outCnt += 1;
+			}
+			else System.out.println("오답");
+		}
 		
+		System.out.println("Progrma Exit !!");
+		
+		sc.close();
 	}
-
 }

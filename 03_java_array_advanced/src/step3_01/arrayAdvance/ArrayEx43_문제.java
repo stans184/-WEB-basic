@@ -49,7 +49,7 @@ public class ArrayEx43_문제 {
 			else if (dir == 2)  yy = yy + 1;
 			else if (dir == 3) 	xx = xx - 1;
 			else if (dir == 4) 	yy = yy - 1;
-			// 사각형의 끝에 걸린다면
+			// 사각형의 끝에 걸린다면 혹은 그곳이 이미 숫자가 들어가있다면
 			if (size <= xx || xx < 0 || size <= yy || yy < 0 || check[yy][xx] == true) {
 				
 				// 달팽이의 방향은 오른쪽 > 아래 > 왼쪽 > 위 이므로
@@ -77,10 +77,10 @@ public class ArrayEx43_문제 {
 			// 숫자가 들어가 있는지 여부를 표시하는 boolean array
 			check[y][x] = true;
 			
-//			System.out.println("y =  " + y + ", x = " + x);
+			// System.out.println("y =  " + y + ", x = " + x);
 			
 		}
-		
+		// 출
 		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map[i].length; j++) {
 				System.out.print(map[i][j] + "\t");

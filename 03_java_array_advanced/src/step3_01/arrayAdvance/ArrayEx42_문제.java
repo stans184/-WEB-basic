@@ -19,6 +19,7 @@ public class ArrayEx42_문제 {
 
 		Scanner sc = new Scanner(System.in);
 		// road 변수는 변경하기 싫다?
+		// final 을 통해 고정 변수로 입력
 		final int ROAD = 20;
 		// 돌아가야 하는 길을 map array 를 통해 표현, 번호순서대로 따라가면 됨
 		int[][] map = {

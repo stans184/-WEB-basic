@@ -21,9 +21,14 @@ public class ArrayEx45_문제 {
 		
 		// 중복을 제거한 랜덤숫자를 임시 저장
 		for (int i=0; i < temp.length; i++) {
+			// 랜덤넘버를 만들고
 			temp[i] = rm.nextInt(size) + 1;
+			// 그 이전까지 들어간 숫자들 중에서
 			for (int j = 0; j < i; j++) {
+				// 같은 숫자가 있는지 검사하고
 				if (temp[i] == temp[j]) {
+					// 같은 숫자가 있으면 다시 랜덤넘버를 만들어야 하니까
+					// 그 순서로 다시 돌아간다
 					i--;
 				}
 			}
