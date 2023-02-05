@@ -35,7 +35,6 @@ public class StringEx10_문제 {
 			if (in.equals("quit")) isRun = false;
 			if (before.charAt(before.length()-1) != in.charAt(0)) System.out.println("끝말을 이어주세요");
 			else before = in;
-			
 		}
 		System.out.println("게임을 종료합니다.");
 		
