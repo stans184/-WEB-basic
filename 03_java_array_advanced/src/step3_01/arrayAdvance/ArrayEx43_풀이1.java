@@ -41,8 +41,8 @@ public class ArrayEx43_풀이1 {
 			else if (dir == 2) yp += 1;
 			else if (dir == 3) xp -= 1;
 			else if (dir == 4) yp -= 1;
-			
-			if (xp < 0 || xp > 4 || yp < 0 || yp > 4 || check[y][x] == true) {
+			// if 조건식이 잘못걸림
+			if (xp < 0 || xp > 4 || yp < 0 || yp > 4 || check[yp][xp] == true) {
 				dir += 1;
 				if (dir == 5) dir = 1;
 				

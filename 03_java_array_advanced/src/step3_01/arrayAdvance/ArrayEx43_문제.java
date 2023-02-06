@@ -77,7 +77,7 @@ public class ArrayEx43_문제 {
 			// 숫자가 들어가 있는지 여부를 표시하는 boolean array
 			check[y][x] = true;
 			
-			// System.out.println("y =  " + y + ", x = " + x);
+//			 System.out.println("y =  " + y + ", x = " + x);
 			
 		}
 		// 출

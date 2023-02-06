@@ -5,7 +5,7 @@ package step4_01.string;
  * 
  * 1. 문자열.length() 							: 문자열의 길이를 반환한다. (반환타입은 int)
  * 2. 문자열.indexOf("문자열") 					: 특정문자열이 포함된 첫번째 위치를 반환한다.  (반환타입은 int)
- * 3. 문자열.charAt(?번째)      				: 문자열의 ?번째에에 포함된 데이터를 반환한다. (반환 타입은 char)
+ * 3. 문자열.charAt(?번째)      				: 문자열의 ?번째에 포함된 데이터를 반환한다. (반환 타입은 char)
  * 4. 문자열.substring(index1이상, index2미만)  : 특정문자열의 index1이상 index2미만의 문자열을 잘라서 반환한다. (반환타입은 String)
  *    문자열.substring(index1)  				: 특정문자열의 index1이상부터 끝까지의 문자열을 잘라서 반환한다. (반환타입은 String)
  * 5. 문자열.split("구분자")					: 구분자로 문자열을 잘라서 반환한다. (반환타입은 String 배열)
@@ -84,7 +84,14 @@ public class StringEx03 {
 		for (String url : splitUrl) System.out.println(url);
 		System.out.println("\n=======================================");
 		
-		// [6] : 문자열 비교 : compareTo()
+		// [6] : 문자열 비교 : compareTo()		문자열 줄세우기, DB에서 order by ~ 로 주로 사용
 		
+		String str1 = "ac";
+		String str2 = "zc";
+		String str3 = "ab";
+		
+		System.out.println(str1.compareTo(str2));		// -3	왼쪽 기준이 오른쪽보다 작을 경우 음수가 반환된다, 해당하는 숫자는 ASCII 코드에서의 차이
+		System.out.println(str1.compareTo(str3));		//  0   두 값이 같으면 0, 앞자리에서 값이 같으면 바로 뒷자리에서 비교
+		System.out.println(str2.compareTo(str3));		//  3	왼쪽 기준이 오른쪽보다 크면 양수가 반환
 	}
 }

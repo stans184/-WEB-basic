@@ -13,7 +13,6 @@ import java.util.Scanner;
  * 입력 : 미술
  * 제시어 : 미술
  * 입력 : quit
- * 
  * - 종료 -
  */
 public class StringEx10_문제 {
@@ -24,8 +23,8 @@ public class StringEx10_문제 {
 		
 		String start = "자전거";
 		System.out.println("제시어 : " + start);
-		boolean isRun = true;
 		
+		boolean isRun = true;
 		String before = start;
 		
 		while (isRun) {

@@ -61,7 +61,7 @@ public class ArrayEx43_문제복기 {
 			x = moveX;
 			y = moveY;
 			
-//			System.out.println(i +  " = " + x + ", " + y);
+			System.out.println(i +  " = " + x + ", " + y);
 			map[y][x] = num;
 			check[y][x] = true;
 		}
