@@ -34,7 +34,7 @@ public class StringEx19_테스트문제 {
 			}
 		}
 		
-		System.out.println(Arrays.toString(total));
+//		System.out.println(Arrays.toString(total));
 		
 		int maxScore = 0;
 		int maxStudent = 0;

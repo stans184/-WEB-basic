@@ -1,7 +1,4 @@
 package step3_01.arrayAdvance;
-
-import java.util.Arrays;
-
 /*
  * # 정렬하기
  * 
@@ -15,13 +12,14 @@ import java.util.Arrays;
  * 80, 50, 30, 40, 10, 7
  * 80, 50, 40, 30, 10, 7
  */
-public class ArrayEx31_문제 {
+
+
+public class ArrayEx31_문제풀이 {
 
 	public static void main(String[] args) {
 		
 		int[] scores = {10, 50, 30, 40, 80, 7};
-		System.out.println(Arrays.toString(scores));
-		System.out.println();
-		
+
 	}
+
 }

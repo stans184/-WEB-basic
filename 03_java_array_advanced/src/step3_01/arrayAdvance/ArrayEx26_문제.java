@@ -1,5 +1,7 @@
 package step3_01.arrayAdvance;
 
+import java.util.Arrays;
+import java.util.Random;
 
 /* 
  * # 1 to 50[3단계] : 1 to 18
@@ -10,17 +12,34 @@ package step3_01.arrayAdvance;
  * 4. 숫자 1~9는 front 배열에 저장하고,
  *    숫자 10~18은 back 배열에 저장한다.
  */
-
-
 public class ArrayEx26_문제 {
 
 	public static void main(String[] args) {
 	
+		Random rm = new Random();
+		
 		final int SIZE = 9;
 		
 		int[] front = new int[SIZE];
 		int[] back  = new int[SIZE];
 		
+		for (int i = 0; i < SIZE; i++) {
+			front[i] = rm.nextInt(SIZE) + 1;
+			for (int j = 0; j < i; j++) {
+				if (front[j] == front[i]) i -= 1;
+			}
+		}
+		
+		for (int i = 0; i < SIZE; i++) {
+			back[i] = rm.nextInt(SIZE) + SIZE + 1;
+			for (int j = 0; j < i; j++) {
+				if (back[j] == back[i]) i -=1;
+			}
+		}
+		
+		System.out.print("front : ");
+		System.out.println(Arrays.toString(front));
+		System.out.print("back : ");
+		System.out.println(Arrays.toString(back));
 	}
-	
 }
