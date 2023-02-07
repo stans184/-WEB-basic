@@ -1,5 +1,7 @@
 package step3_01.arrayAdvance;
 
+import java.util.Arrays;
+
 /*
  * # 석차 출력
  * 
@@ -37,6 +39,9 @@ public class ArrayEx32_정답예시 {
 			names[maxIdx] = nameTemp;
 			
 		}
+		
+		System.out.println(Arrays.toString(scores));
+		System.out.println(Arrays.toString(names));
 		
 		for (int i = 0; i < scores.length; i++) {
 			System.out.println(names[i] + " : " + scores[i]);

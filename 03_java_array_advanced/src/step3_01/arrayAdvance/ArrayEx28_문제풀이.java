@@ -19,7 +19,7 @@ public class ArrayEx28_문제풀이 {
 		
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = rm.nextInt(10) + 1;
-			for (int j = 0; j < j; j++) {
+			for (int j = 0; j < i; j++) {
 				if (arr[j] == arr[i]) i -= 1;
 			}
 		}
