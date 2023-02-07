@@ -40,7 +40,6 @@ public class StringEx17_문제 {
 			if (i == spText.length -1) System.out.print(spText[i] + ".");
 			else System.out.print(spText[i] + " ");
 		}
-		
 		sc.close();
 	}
 }
