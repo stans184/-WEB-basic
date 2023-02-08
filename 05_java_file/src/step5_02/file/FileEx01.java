@@ -29,10 +29,8 @@ public class FileEx01 {
 			String inStr = sc.nextLine();
 			
 			if (inStr.equals("end")) break;
-			str += inStr;								// \n 개행은 인풋이 안됨, + "\n" 더하기로 넣어줘야 함
+			str += inStr + "\n";						// \n 개행은 scanner로 인풋이 안됨, + "\n" 더하기로 넣어줘야 함
 		}
-		
-		System.out.println("str = " + str);
 		
 		FileWriter fw = null;
 		String fileName1 = "ex01.txt";
@@ -43,7 +41,6 @@ public class FileEx01 {
 			fw = new FileWriter(fileName1);				// 파일을 생성하는 기능의 객체, 동일한 이름이 있다면 덮어쓰기됨 (주의)
 			
 			fw.write(str);								// write method 는 개행 기능이 없으므로, \n 을 꼭 넣어줘야함
-			fw.write("\n개행은 인풋이 안되나?");
 			
 		} catch (IOException e) {
 			e.printStackTrace();
