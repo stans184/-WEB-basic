@@ -3,7 +3,6 @@ package step5_02.file;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Arrays;
 import java.util.Scanner;
 
 //# 파일 컨트롤러[2단계] : ATM
@@ -107,8 +106,8 @@ public class FileEx07_문제 {
 						
 						if (!outPw.equals(pws[outIdx])) System.out.println("비밀번호가 다릅니다.");
 						else {
-							String[] tmpAcc = new String[accsCnt - 1];
-							String[] tmpPw = new String[accsCnt - 1];
+							String[] tmpAcc = new String[size];
+							String[] tmpPw = new String[size];
 							
 							for (int i = 0; i < outIdx; i++) {
 								tmpAcc[i] = accs[i];
@@ -117,6 +116,10 @@ public class FileEx07_문제 {
 							for (int i = outIdx; i < accsCnt-1; i++) {
 								tmpAcc[i] = accs[i+1];
 								tmpPw[i] = pws[i+1];
+							}
+							for (int i = accsCnt-1; i < size; i++) {
+								tmpAcc[i] = null;
+								tmpPw[i] = null;
 							}
 							
 							accs = tmpAcc;
@@ -248,24 +251,27 @@ public class FileEx07_문제 {
 					int[] tmpMoney = new int[size];
 					int i = 0;
 					
-					String accInfo = br.readLine();
+					br.readLine();
 					
 					while (true) {
 						
 						String accData = br.readLine();
-						if (accInfo == null) break;
+						if (accData == null) break;
 						
-						String[] accDataSplit = accData.split("\t");
-						
-						tmpAcc[i] = accDataSplit[0];
-						tmpPw[i] = accDataSplit[1];
-						tmpMoney[i++] = Integer.parseInt(accDataSplit[2]);
+						if (accData != null ) {
+							String[] accDataSplit = accData.split("\t");
+							
+							tmpAcc[i] = accDataSplit[0];
+							tmpPw[i] = accDataSplit[1];
+							tmpMoney[i++] = Integer.parseInt(accDataSplit[2]);
+							accsCnt += 1;
+						}
 					}
 					accs = tmpAcc;
 					pws = tmpPw;
 					moneys = tmpMoney;
 					
-					System.out.println("불러온 계좌 리스트는 다음과 같습니다.");
+					System.out.println("불러온 계좌 리스트는 다음과 같습니다.\n");
 					for (int k = 0; k < accsCnt; k++) {
 						if (accs[k] != null) System.out.print(accs[k] + " ");
 					}
