@@ -54,9 +54,9 @@ public class ClassEx08_문제 {
 		MoveGame mg = new MoveGame();
 		
 		while (true) {
-			System.out.println(mg.playerIdx);
+			System.out.println();
 			System.out.println(Arrays.toString(mg.game));
-			
+			System.out.println();
 			System.out.print("Enter direction ( 1 - left, 2 - right, 3 - punch, 4 - exit : ");
 			int dir = sc.nextInt();
 			
@@ -64,28 +64,29 @@ public class ClassEx08_문제 {
 				if (mg.playerIdx == 0) {
 					mg.movePlayer(mg.game.length-1);
 				}
-				else if (mg.playerIdx == mg.game.length-1) {
-					mg.movePlayer(-(mg.game.length-1));
-				}
 				else {
-					if (mg.game[mg.playerIdx-1] == 1) System.out.println("WALL!");
+					if (mg.game[mg.playerIdx-1] == 1) {
+						System.out.println("WALL!, you want to 3 - punch ? ");
+						int inPunch = sc.nextInt();
+						if (inPunch == 3) mg.punch();
+						else continue;
+					}
 					else mg.movePlayer(-1);
 				}
 			}
 			else if (dir == 2) {
-				if (mg.playerIdx == 0) {
-					mg.movePlayer(6);
-				}
-				else if (mg.playerIdx == 6) {
-					mg.movePlayer(-6);
+				if (mg.playerIdx == mg.game.length-1) {
+					mg.movePlayer(-(mg.game.length-1));
 				}
 				else {
-					if (mg.game[mg.playerIdx+1] == 1) System.out.println("WALL!");
+					if (mg.game[mg.playerIdx+1] == 1) {
+						System.out.println("WALL!, you want to 3 - punch ? ");
+						int inPunch = sc.nextInt();
+						if (inPunch == 3) mg.punch();
+						else continue;
+					}
 					else mg.movePlayer(+1);
 				}
-			}
-			else if (dir == 3) {
-				mg.punch();
 			}
 			else if (dir == 4) {
 				System.out.println("GAME END");

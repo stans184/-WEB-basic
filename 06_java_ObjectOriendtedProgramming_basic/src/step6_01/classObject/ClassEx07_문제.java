@@ -22,6 +22,7 @@ package step6_01.classObject;
  * 매출액 : 24000원
  */
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class Theater {
@@ -30,6 +31,14 @@ class Theater {
 	int money = 0;
 	int bookCnt = 0;
 	
+	public void reservation(int num) {
+		if (seat[num] == 0) {
+			System.out.println(num + "번 자리 예매되었습니다.");
+			seat[num] += 1;
+			bookCnt += 1;
+		}
+		else System.out.println("해당 자리는 이미 예매되었습니다.");
+	}
 }
 
 public class ClassEx07_문제 {
@@ -40,7 +49,8 @@ public class ClassEx07_문제 {
 		Theater theater = new Theater();
 		
 		while (true) {
-			
+			System.out.println();
+			if (theater.bookCnt != 0) System.out.println(Arrays.toString(theater.seat));
 			System.out.println("[MEGA MOVIE]");
 			System.out.println("[1]좌석예매");
 			System.out.println("[2]종료하기");
@@ -59,23 +69,15 @@ public class ClassEx07_문제 {
 					System.out.print("원하는 자리의 인덱스를 입력하세요 : ");
 					int inIdx = sc.nextInt();
 					
-					if (theater.seat[inIdx] == 0) {
-						System.out.println(inIdx + "번 자리 예매되었습니다.");
-						theater.seat[inIdx] += 1;
-						theater.bookCnt += 1;
-					}
-					else {
-						System.out.println("해당 자리는 이미 예매되었습니다.");
-					}
+					theater.reservation(inIdx);
 				}
 			}
 			else if (sel == 2) {
-				System.out.println("종료되었습니다.");
+				System.out.println("판매가 종료되었습니다.");
 				System.out.println("현재까지 매출은 " + 12000*theater.bookCnt + "원 입니다.");
 				break;
 			}
 		}
-
 		sc.close();
 	}
 }
