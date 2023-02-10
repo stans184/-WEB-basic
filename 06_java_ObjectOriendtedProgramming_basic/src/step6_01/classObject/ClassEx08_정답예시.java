@@ -89,7 +89,6 @@ public class ClassEx08_정답예시 {
 			
 		}
 
-		
 	}
 
 }
