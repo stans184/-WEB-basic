@@ -7,7 +7,7 @@ package step6_01.classObject;
  * 4. 모든 카드가 뒤집히면(back배열의 0이 사라지면) 게임은 종료된다. 
  */
 
-class RememberGame1{
+class RememberGame{
 	
 	int[] front = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
 	int[] back = new int[10];
@@ -18,7 +18,7 @@ class RememberGame1{
 	}
 }
 
-public class ClassEx09_문제 {
+public class ClassEx09_문제풀이 {
 
 	public static void main(String[] args) {		
 		
