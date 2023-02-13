@@ -123,15 +123,11 @@ class Ex12 {
 		for (int i = 0; i < data.length(); i++) {
 			
 			String temp = data.charAt(i) + "";
-			if (temp.equals(sep)) {
-				sepCnt++;
-			}
-			
+			if (temp.equals(sep)) sepCnt++;
 		}
 		
 		String[] subStrList = new String[sepCnt + 1];
 		
-		System.out.println(Arrays.toString(subStrList));
 		int sepIdx = 0;			
 		for (int i = 0; i < subStrList.length; i++) {   
 			
@@ -145,7 +141,6 @@ class Ex12 {
 				word += data.charAt(j);
 				sepIdx++;
 			}
-			
 			subStrList[i] = word;
 		}
 		

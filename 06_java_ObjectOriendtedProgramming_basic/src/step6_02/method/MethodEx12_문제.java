@@ -36,7 +36,16 @@ class Ex12_1 {
 	
 	// 5. 문자열에 특정 문자의 위치를 리턴하는 myIndexOf 메서드를 만드시오.
 	int myIndexOf(String data , String word) {
-		return data.indexOf(word);
+		
+		int range = data.length();
+		int checkIdx = -1;
+		
+		for (int i = 0; i < range; i++) {
+			String tmp = data.charAt(i) + "";
+			if (tmp.equals(word)) checkIdx = i;
+		}
+		
+		return checkIdx;
 	}
 	
 	// 6. 문자열에 특정 위치의 문자를 리턴하는 myCharAt 메서드를 만드시오.
@@ -70,7 +79,31 @@ class Ex12_1 {
 	// 지금은 split method 를 썼는데, 안쓰고 하는거 해보기
 	// 8. 문자열을 특정 키워드로 잘라내어 배열에 담아서 리턴하는 mySplit 메서드를 만드시오.
 	String[] mySplit(String data , String sep) {
-		return data.split(sep);
+		
+		int splitCnt = 0;
+		
+		for (int i = 0; i < data.length(); i++) {
+			String tmp = data.charAt(i) + "";
+			if (tmp.equals(sep)) splitCnt += 1;
+		}
+		
+		String[] answer = new String[splitCnt+1];
+		int checkCnt = 0;
+		
+		for (int i = 0; i < answer.length; i++) {
+			String word = "";
+			for (int j = checkCnt; j < data.length(); j++) {
+				String tmp = data.charAt(j) + "";
+				if (!tmp.equals(sep)) {
+					word += tmp;
+				}else {
+					checkCnt = j+1;
+					break;
+				}
+			}
+			answer[i] = word;
+		}
+		return answer;
 	}
 }
 
