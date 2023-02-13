@@ -27,7 +27,7 @@ public class ClassEx08_정답예시 {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		
 		Ex08 e = new Ex08();
 		
@@ -46,13 +46,13 @@ public class ClassEx08_정답예시 {
 			System.out.println();
 			
 			System.out.print("1.left 2.right : ");
-			int move = scan.nextInt();
+			int move = sc.nextInt();
 			
 			if (move == 1) {
 				
 				if (player != 0 && e.game[player - 1] == 1) {
 					System.out.print("3.punch : ");
-					int punch = scan.nextInt();
+					int punch = sc.nextInt();
 					if (punch != 3) {
 						continue;
 					}
@@ -72,7 +72,7 @@ public class ClassEx08_정답예시 {
 				
 				if (player != e.game.length-1 && e.game[player + 1] == 1) {
 					System.out.print("3.punch : ");
-					int punch = scan.nextInt();
+					int punch = sc.nextInt();
 					if (punch != 3) {
 						continue;
 					}
@@ -86,9 +86,8 @@ public class ClassEx08_정답예시 {
 				e.game[player] = 2;
 				
 			}
-			
+			else if (move == 5) break;
 		}
-
+		sc.close();
 	}
-
 }

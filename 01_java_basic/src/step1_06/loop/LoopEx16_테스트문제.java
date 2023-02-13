@@ -38,7 +38,7 @@ public class LoopEx16_테스트문제 {
 		int speed = 0;
 		
 		// 요금
-		int fee = 0;
+//		int fee = 0;
 		
 		boolean isRun = true;
 		

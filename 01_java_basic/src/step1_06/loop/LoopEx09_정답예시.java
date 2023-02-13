@@ -25,7 +25,7 @@ public class LoopEx09_정답예시 {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		int myAcc = 1111;
+//		int myAcc = 1111;
 		int myMoney = 50000;
 		
 		int yourAcc = 2222;

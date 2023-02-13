@@ -1,4 +1,7 @@
 package step6_02.method;
+
+import java.util.Arrays;
+
 /*  # 클래스의 구성요소
  *  
  *  [1] 멤버변수, 필드, Property
@@ -58,5 +61,11 @@ public class MethodEx01 {
 		MethodEx me = new MethodEx();
 		
 		me.printMenu();
+		
+		String test = "ywyw.ywywy";
+		String[] test2 = test.split("\\.");
+		System.out.println(Arrays.toString(test2));
+		System.out.println(test2[0]);
+		System.out.println(test2[1]);
 	}
 }

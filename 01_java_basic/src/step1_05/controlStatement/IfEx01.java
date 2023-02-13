@@ -21,11 +21,11 @@ public class IfEx01 {
 			System.out.println("command 3");
 		}
 	
-		if (false) { // if문에 속한 명령어는 들여쓰기
-			System.out.println("command 4");
-			System.out.println("command 5");
-			System.out.println("command 6");
-		}
+//		if (false) { // if문에 속한 명령어는 들여쓰기
+//			System.out.println("command 4");
+//			System.out.println("command 5");
+//			System.out.println("command 6");
+//		}
 		
 		int income = 2200000;
 		// [option] if 안에 속한 명령어가 1줄이면 {} 생략 가능

@@ -25,10 +25,10 @@ public class ClassEx02 {
 		
 		// 같은 패키지 안의 클래스는 다른 클래스에서 사용이 가능하다.(접근제어자는 후에 자세히 공부)
 		
-		Product pd1 = new Product();
-		Product pd2 = new Product();
-		Product pd3 = new Product();
-		
-		Member member10 = new Member();
+//		Product pd1 = new Product();
+//		Product pd2 = new Product();
+//		Product pd3 = new Product();
+//		
+//		Member member10 = new Member();
 	}
 }

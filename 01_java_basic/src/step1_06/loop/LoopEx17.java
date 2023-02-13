@@ -51,7 +51,7 @@ public class LoopEx17 {
 			else if (getMenu == 3) System.out.println("감자");
 			
 			System.out.print("#현금 투입 :");
-			int getMoney = scan.nextInt();
+//			int getMoney = scan.nextInt();
 			
 		}
 	}
