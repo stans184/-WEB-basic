@@ -13,9 +13,7 @@ class Student{
 	
 	double getAvg() {
 		int sum = 0;
-		for (int i = 0; i < subjects.length; i++) {
-			sum += subjects[i].score;
-		}
+		for (int i = 0; i < subjects.length; i++) sum += subjects[i].score;
 		
 		return (double) sum/subjects.length;
 	}
