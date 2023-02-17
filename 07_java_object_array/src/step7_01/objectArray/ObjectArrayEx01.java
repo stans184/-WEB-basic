@@ -3,6 +3,16 @@ package step7_01.objectArray;
 class Product{
 	String name;
 	int price;
+	
+	// default constructor, 코드에 생성자가 아무것도 없으면 컴파일러가 알아서 만들어줌
+	// 그런데 임의의 생성자를 설정해놓으면, 그렇게만 생성되기 때문에
+	// default constructor 로 class 를 생성하고 싶으면 하나 다시 만들어줘야 함
+	public Product() {}
+	
+	public Product(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
 }
 
 public class ObjectArrayEx01 {

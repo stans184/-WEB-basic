@@ -1,0 +1,52 @@
+package step7_01.objectArray;
+
+import java.util.ArrayList;
+class Tv {
+	
+	String name;
+	String brand;
+	int price;
+	
+	public Tv(String name, String brand, int price) {
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+	}
+}
+
+
+public class ObjectArrayEx12_연습 {
+
+	public static void main(String[] args) {
+		
+		// ArrayList 사용
+		ArrayList<Tv> list = new ArrayList<Tv>();
+
+		Tv temp = new Tv("TV", "삼성", 1000);
+		list.add(temp);
+		
+		temp = new Tv("시그니처TV", "엘지", 2000);
+		list.add(temp);
+
+		temp = new Tv("스마트TV", "애플", 3000);
+		list.add(temp);
+	
+		list.remove(1);
+		
+		for (int i = 0 ; i < list.size(); i++) {
+			System.out.println("brand\t: " + list.get(i).brand);
+			System.out.println("name\t: " + list.get(i).name);
+			System.out.println("price\t: " + list.get(i).price);
+			System.out.println();
+		}
+		
+		System.out.println("\n");
+		
+		for (Tv tv : list) {
+			System.out.println("brand\t: " + tv.brand);
+			System.out.println("name\t: " + tv.name);
+			System.out.println("price\t: " + tv.price);
+			System.out.println();
+		}
+	}
+}
