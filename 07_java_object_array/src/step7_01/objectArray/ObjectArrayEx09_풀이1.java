@@ -120,7 +120,7 @@ class CrewSystem{
 //			while (br.readLine() != null) {
 //				System.out.println(br.readLine());
 //			}
-//			그리고 밑에처럼 닫아줘도 되나?
+//			그리고 밑에처럼 닫아줘도 되나?				됨, 원래 있는 방법
 			br.close();
 		}
 	}
