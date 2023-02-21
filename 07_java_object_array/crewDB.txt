@@ -1,6 +1,0 @@
-hong	666
-jang	444
-kim	111
-lee	222
-lim	555
-park	333
