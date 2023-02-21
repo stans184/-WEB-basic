@@ -15,10 +15,10 @@ public class Account {
 		return accountMoney;
 	}
 	public void setAccountMoney(int accountMoney) {
-		this.accountMoney = accountMoney;
+		this.accountMoney += accountMoney;
 	}
 	@Override
 	public String toString() {
-		return "Account [" + accountNum + ", Money =" + accountMoney + "]";
+		return "Account [" + accountNum + "] $" + accountMoney;
 	}
 }
