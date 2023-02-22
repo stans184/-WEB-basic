@@ -47,13 +47,12 @@ public class ATM {
 				usrMnger.withdraw(inId, inPw);
 			}
 			else if (sel == 0) break;
-			sc.nextLine();
 		}
 	}
 	
 	public void printUserMenu() {
 		
-		AccountManager accMng = new AccountManager();
+		var accMng = new AccountManager();
 		
 		while (true) {
 			System.out.println();
@@ -92,11 +91,12 @@ public class ATM {
 			}
 			else if (sel == 0) {
 				System.out.println(usrMnger.userList.get(usrMnger.getIdentifier()).getUserId() + ", log out");
-				usrMnger.userList.get(usrMnger.getIdentifier()).setAccountList(accMng.getUsrAccList());
+				// 로그인 했던 유저의 accList 를 반환하기 (2개 방법)
+				// [1] usrMnger.userList.get(usrMnger.getIdentifier()).setAccountList(accMng.getUsrAccList());
+				/* [2] */ accMng.returnAccList();
 				usrMnger.setIdentifier(-1);
 				break;
 			}
-			sc.nextLine();
 		}
 	}
 }

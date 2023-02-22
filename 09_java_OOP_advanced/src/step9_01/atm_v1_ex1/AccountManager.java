@@ -8,16 +8,25 @@ import java.util.Random;
 
 public class AccountManager {
 
-	UserManager usrMngr = UserManager.getInstance();
 	Random rm = new Random();
+//	UserManager usrMngr = new UserManager();
 //	여기서 -1 이 가져와짐,, 이유는 위에서 UserManager class 를 다시 불러와서 그런가?
 //	싱글톤 패턴으로 해결할 수 있을 듯, UserManager SingleTon 으로 구현함
+	UserManager usrMngr = UserManager.getInstance();
 	int usrIdx = usrMngr.getIdentifier();
-//	지금 유저의 계좌에 접근을 못하고 있음,,, 한번 돌때만 저장되고 나가면 초기화되고
-	ArrayList<Account> usrAccList = usrMngr.userList.get(usrIdx).getAccountList();
 	
+//	지금 유저의 계좌에 접근을 못하고 있음,,, 한번 돌때만 저장되고 나가면 초기화되고
+//	계좌 리스트를 반환해서 해결 - 방법 2가지
+	ArrayList<Account> usrAccList = usrMngr.userList.get(usrIdx).getAccountList();
+
+	// [1]
 	public ArrayList<Account> getUsrAccList() {
 		return usrAccList;
+	}
+	
+	// [2]
+	public void returnAccList() {
+		usrMngr.userList.get(usrIdx).setAccountList(usrAccList);
 	}
 
 	public void printAccountList() {
