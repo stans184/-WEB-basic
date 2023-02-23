@@ -23,7 +23,6 @@ public class ClientManager {
 	private int logIdenifier = -1;
 	
 	public int getLogIdenifier() {return logIdenifier;}
-
 	public void setLogIdenifier(int logIdenifier) {this.logIdenifier = logIdenifier;}
 
 	public void join() {

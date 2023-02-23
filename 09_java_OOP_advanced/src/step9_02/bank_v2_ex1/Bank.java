@@ -1,7 +1,6 @@
 package step9_02.bank_v2_ex1;
 
 import java.util.Scanner;
-
 /*
  * run
  * login
@@ -9,7 +8,6 @@ import java.util.Scanner;
  * join
  * exit
  */
-
 public class Bank {
 	
 	Scanner sc = new Scanner(System.in);
@@ -32,9 +30,7 @@ public class Bank {
 				clientMngr.logIn();
 				if (clientMngr.getLogIdenifier() != -1) clientMenu();
 			}
-			else if (sel == 2) {
-				clientMngr.join();
-			}
+			else if (sel == 2) clientMngr.join();
 			else if (sel == 3) {
 				
 			}
@@ -62,24 +58,13 @@ public class Bank {
 			System.out.print("Select menu : ");
 			int sel = sc.nextInt();
 			
-			if (sel == 1) {
-				bookMngr.creat();
-			}
-			else if (sel == 2) {
-				bookMngr.delete();
-			}
-			else if (sel == 3) {
-				bookMngr.print();
-			}
-			else if (sel == 4) {
-				
-			}
-			else if (sel == 5) {
-				
-			}
-			else if (sel == 6) {
-
-			}
+			if 		(sel == 1) bookMngr.creat();
+			else if (sel == 2) bookMngr.delete();
+			else if (sel == 3) bookMngr.print();
+			else if (sel == 4) bookMngr.deposit();
+			else if (sel == 5) bookMngr.withdraw();
+			// 이체는 아직... 컨디션좀 돌아오고 하자
+			else if (sel == 6) bookMngr.transfer();
 			else if (sel == 0) {
 				clientMngr.logOut();
 				break;
