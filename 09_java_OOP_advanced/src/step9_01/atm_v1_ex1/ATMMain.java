@@ -25,7 +25,11 @@ public class ATMMain {
   
   1-1) user LogOut 의 기능이 UserManager에 포함되어 있는데, 로그아웃할 때 AccountList 의 반환이 필요함
   	   이 상황을 해결하기 위해선 AccountManager 또한 SingleTon 으로 처리해야 할 필요가 있음
-
+	   Exception in thread "main" java.lang.StackOverflowError
+	   >> UserManager class 에서 정의하지 않고, logOut method 에서 정의하니까 잘 넘어감 이유는?
+	   >> class 가 서로서로를 계속 부르게 되므로, 반복적인 생성만 발생
+	   >> StackOverFLow
+		
   2) 이거는 코드를 좀 길게 봐야
   유저를 여러개 만들고, 하나에서 계정 활동을 한 후, 다른 유저 조작하다가 다시 들어오면
   계좌가 초기화된다

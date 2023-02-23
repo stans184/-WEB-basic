@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class ATM {
 
 	Scanner sc = new Scanner(System.in);
-	UserManager usrMnger = UserManager.getInstance();
+	UserManager usrMngr = UserManager.getInstance();
 
 	public void printATMMenu() {
 		
@@ -26,8 +26,8 @@ public class ATM {
 				System.out.print("Enter User PW : ");
 				String inPw = sc.next();
 				
-				usrMnger.logIn(inId, inPw);
-				if (usrMnger.getIdentifier() != -1) printUserMenu();
+				usrMngr.logIn(inId, inPw);
+				if (usrMngr.getIdentifier() != -1) printUserMenu();
 			}
 			else if (sel == 2) {
 				System.out.println("Welcome IT ATM");
@@ -36,7 +36,7 @@ public class ATM {
 				System.out.print("Enter new User PW : ");
 				String inPw = sc.next();
 				
-				usrMnger.addUser(inId, inPw);
+				usrMngr.addUser(inId, inPw);
 			}
 			else if (sel == 3) {
 				System.out.print("Enter User ID : ");
@@ -44,7 +44,7 @@ public class ATM {
 				System.out.print("Enter User PW : ");
 				String inPw = sc.next();
 				
-				usrMnger.withdraw(inId, inPw);
+				usrMngr.withdraw(inId, inPw);
 			}
 			else if (sel == 0) break;
 		}
@@ -52,11 +52,11 @@ public class ATM {
 	
 	public void printUserMenu() {
 		
-		var accMng = new AccountManager();
+		var accMng = AccountManager.getInstance();
 		
 		while (true) {
 			System.out.println();
-			System.out.println(usrMnger.userList.get(usrMnger.getIdentifier()).getUserId() + ", using");
+			System.out.println(usrMngr.userList.get(usrMngr.getIdentifier()).getUserId() + ", using");
 			System.out.println("[1. make Account] [2. delete Account] [3. search] [4. Deposit] [5. Withdraw] [0. Log-out]");
 			System.out.print("Select menu : ");
 			int sel = sc.nextInt();
@@ -70,7 +70,7 @@ public class ATM {
 				accMng.deleteAccount(inAcc);
 			}
 			else if (sel == 3) {
-				System.out.println(usrMnger.userList.get(usrMnger.getIdentifier()).getUserId() + " Account List");
+				System.out.println(usrMngr.userList.get(usrMngr.getIdentifier()).getUserId() + " Account List");
 				accMng.printAccountList();
 			}
 			else if (sel == 4) {
@@ -90,11 +90,12 @@ public class ATM {
 				accMng.deposit(outAcc, outMoney);
 			}
 			else if (sel == 0) {
-				System.out.println(usrMnger.userList.get(usrMnger.getIdentifier()).getUserId() + ", log out");
+				System.out.println(usrMngr.userList.get(usrMngr.getIdentifier()).getUserId() + ", log out");
 				// 로그인 했던 유저의 accList 를 반환하기 (2개 방법)
 				// [1] usrMnger.userList.get(usrMnger.getIdentifier()).setAccountList(accMng.getUsrAccList());
-				/* [2] */ accMng.returnAccList();
-				usrMnger.setIdentifier(-1);
+				// [2] accMng.returnAccList();
+				// usrMnger.setIdentifier(-1);
+				usrMngr.logOut();
 				break;
 			}
 		}

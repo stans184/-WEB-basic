@@ -7,6 +7,16 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class AccountManager {
+	
+	// UserManager class 에 log out 기능 생성을 위한 singleton
+	private static AccountManager accountManager;
+	
+	private AccountManager() {}
+	
+	public static AccountManager getInstance() {
+		if (accountManager == null) accountManager = new AccountManager();
+		return accountManager;
+	}
 
 	Random rm = new Random();
 //	UserManager usrMngr = new UserManager();

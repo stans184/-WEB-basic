@@ -55,7 +55,7 @@ public class TechniqueEx03 {
 		
 		prove.showStatus();
 		
-		var test = new test();
+		var test = new StaticVarTest();
 		
 		System.out.println("다른 클래스에서 instance로 생성한 값 : " + test.moveTest);
 		System.out.println();

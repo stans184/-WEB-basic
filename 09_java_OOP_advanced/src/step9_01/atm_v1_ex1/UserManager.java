@@ -13,9 +13,12 @@ public class UserManager {
 	private UserManager() {}
 	
 	public static UserManager getInstance() {
-		if (userManager == null) {userManager = new UserManager();}
+		if (userManager == null) userManager = new UserManager();
 		return userManager;
 	}
+	
+//	이러면 stackOverFlow 발생
+//	AccountManager accMngr = AccountManager.getInstance();
 	
 	ArrayList<User> userList;
 	private int identifier = -1;
@@ -83,7 +86,10 @@ public class UserManager {
 	// 로그아웃을 하나로 구현하는게 좋은데, 여기서 넘겨버리면 accountList 를 반환하지 못함
 	// AccountManager 또한 SingleTon 으로 구현해서 처리해야함
 	public void logOut() {
+		var accMngr = AccountManager.getInstance();
 		
+		accMngr.returnAccList();
+		setIdentifier(-1);
 	}
 	
 	public void withdraw(String id, String pw) {
