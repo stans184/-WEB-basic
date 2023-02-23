@@ -1,16 +1,12 @@
 package step9_02.bank_v2_ex1;
 
+import java.io.IOException;
 import java.util.Scanner;
-/*
- * run
- * login
- * > login menu
- * join
- * exit
- */
+
 public class Bank {
 	
 	Scanner sc = new Scanner(System.in);
+	BankDB bankDB = new BankDB();
 	ClientManager clientMngr = ClientManager.getInstance();
 	
 	void run() {
@@ -32,7 +28,9 @@ public class Bank {
 			}
 			else if (sel == 2) clientMngr.join();
 			else if (sel == 3) {
-				
+				try {
+					bankDB.save();
+				} catch (IOException e) {System.out.println(e);}
 			}
 			else if (sel == 4) {
 				
