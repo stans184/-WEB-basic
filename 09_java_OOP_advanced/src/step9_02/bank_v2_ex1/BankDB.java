@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BankDB {
 	
@@ -22,42 +23,45 @@ public class BankDB {
 		for (int i = 0; i < clientMngr.clients.size(); i++) {
 			String data = clientMngr.clients.get(i).getClientId() + "\t";
 			data += clientMngr.clients.get(i).getClientPw() + "\t";
-			for (int j = 0; j < clientMngr.clients.get(i).getBookList().size(); j++) {
-				data += clientMngr.clients.get(i).getBookList().get(j).getBookNum() + "\t";
-				data += clientMngr.clients.get(i).getBookList().get(j).getMoney() + "\t";
+			if (clientMngr.clients.get(i).getBookList() != null) {
+				for (int j = 0; j < clientMngr.clients.get(i).getBookList().size(); j++) {
+					data += clientMngr.clients.get(i).getBookList().get(j).getBookNum() + "\t";
+					data += clientMngr.clients.get(i).getBookList().get(j).getMoney() + "\t";
+				}
 			}
 			data += "\n";
 			fw.write(data);
 		}
 		fw.close();
+		System.out.println("Client data saved in DB");
 	}
 	
 	public void load() throws IOException {
 		fr = new FileReader(bankDB);
 		br = new BufferedReader(fr);
 		
-		if (clientMngr.clients == null) clientMngr.clients = new ArrayList<>();
+		clientMngr.clients = new ArrayList<>();
 		
 		while (true) {
 			String read = br.readLine();
 			if (read == null) break;
 			
-			String[] userSplit = read.split("\n");
+			String[] userSplit = read.split("\t");
+			int bookCnt = userSplit.length;
+			var addClient = new Client(userSplit[0], userSplit[1]);
+			addClient.setBookList(new ArrayList<PassBook>());
 			
-			for (int i = 0; i < userSplit.length; i++) {
-				String[] userData = userSplit[i].split("\t");
-				int bookCnt = (userData.length-1)/2;
-				
-				Client newMan = new Client(userData[0], userData[1]);
-				ArrayList<PassBook> bookList = new ArrayList<>();
-				
-				for (int j = 0; j < bookCnt; j++) {
-//					bookList.add(new PassBook(j))
+			if (bookCnt > 2) {
+				for (int i = 2; i < bookCnt; i+=2) {
+					PassBook newPB = new PassBook(Integer.parseInt(userSplit[i]));
+					newPB.setMoney(Integer.parseInt(userSplit[i+1]));
+					addClient.getBookList().add(newPB);
 				}
 			}
+			clientMngr.clients.add(addClient);
 		}
-		
 		br.close();
 		fr.close();
+		System.out.println("Client data loaded from DB");
 	}
 }

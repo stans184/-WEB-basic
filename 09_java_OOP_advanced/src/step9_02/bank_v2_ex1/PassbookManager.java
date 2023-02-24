@@ -14,7 +14,7 @@ public class PassbookManager {
 	Scanner sc = new Scanner(System.in);
 	ArrayList<PassBook> bookList;
 	
-	public final int BOOKCNT = 3;
+	private final int BOOKCNT = 3;
 	
 	public void creat() {
 		if (bookList == null) bookList = new ArrayList<PassBook>();
@@ -76,42 +76,45 @@ public class PassbookManager {
 	}
 	
 	public void transfer() {
+		/* 출금할 계좌를 받고
+		 * 얼마인지 받고
+		 * 상대 계좌를 받고
+		 */
 		
 		var clientMngr = ClientManager.getInstance();
 		
-		System.out.print("Enter the passbook number want to withdraw : ");
+		System.out.print("Enter your passbook number want to withdraw : ");
 		int bookNum = sc.nextInt();
-		int idx = bookIdxCheck(bookNum);
-		
-		if (idx == -1) System.out.println("Please re-check");
+		int outBook = bookIdxCheck(bookNum);
+		if (outBook == -1) System.out.println("PassBook num recheck");
 		else {
-			System.out.print("Enter Money to transfer ? ");
-			int mvMoney = sc.nextInt();
+			System.out.print("Enter money to transfer ? ");
+			int outMoney = sc.nextInt();
 			
-			if (bookList.get(idx).getMoney() < mvMoney) System.out.println("Not enough money");
+			if (outMoney > bookList.get(outBook).getMoney()) System.out.println("Lack of Balance");
 			else {
-				System.out.print("Enter the passbook number to receive money : ");
-				int mvBookNum = sc.nextInt();
-				int mvIdx = -1;
-				int mvUsrIdx = -1;
+				System.out.print("Enter passbook number to transfer : ");
+				int transBookNum = sc.nextInt();
+				int transUsrIdx = -1;
+				int transBookIdx = -1;
+				
 				
 				for (int i = 0; i < clientMngr.clients.size(); i++) {
-					for (int j = 0; j < clientMngr.clients.get(i).getBookList().size(); j++) {
-						if (clientMngr.clients.get(i).getBookList().get(j).getBookNum() == mvBookNum) {
-							mvIdx = j;
-							mvUsrIdx = i;
+					var targetBookList = clientMngr.clients.get(i).getBookList();
+					for (int j = 0; j < targetBookList.size(); j++) {
+						if (transBookNum == targetBookList.get(j).getBookNum()) {
+							transUsrIdx = i;
+							transBookIdx = j;
 						}
 					}
 				}
 				
-				if (mvIdx == -1 || mvUsrIdx == -1) System.out.println("Wrong input, reCheck");
-				else {
-					bookList.get(idx).setMoney(-mvMoney);
-					clientMngr.clients.get(mvUsrIdx).getBookList().get(mvIdx).setMoney(mvMoney);
-					System.out.println(mvMoney + ", transfer from [" + bookList.get(idx).getBookNum() + "]"
-							+ " to " + clientMngr.clients.get(mvUsrIdx).getClientId() + "\' passbook ["
-							+ clientMngr.clients.get(mvUsrIdx).getBookList().get(mvIdx).getBookNum() + "]");
-				}
+				var targetBook = clientMngr.clients.get(transUsrIdx).getBookList().get(transBookIdx);
+				
+				System.out.println(outMoney + ", transfer from [" + bookList.get(outBook).getBookNum() + "]");
+				System.out.println("to [" + targetBook.getBookNum() + "]");
+				bookList.get(outBook).setMoney(-outMoney);
+				clientMngr.clients.get(transUsrIdx).getBookList().get(transBookIdx).setMoney(outBook);
 			}
 		}
 	}

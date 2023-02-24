@@ -27,15 +27,13 @@ public class Bank {
 				if (clientMngr.getLogIdenifier() != -1) clientMenu();
 			}
 			else if (sel == 2) clientMngr.join();
-			else if (sel == 3) {
-				try {
-					bankDB.save();
-				} catch (IOException e) {System.out.println(e);}
+			else if (sel == 3) try {bankDB.save();} catch (IOException e) {System.out.println(e);}
+			else if (sel == 4) try {bankDB.load();} catch (IOException e) {System.out.println(e);}
+			else if (sel == 0) {
+				System.out.println("Program Exit");
+				try {bankDB.save();} catch (IOException e) {System.out.println(e);}
+				break;
 			}
-			else if (sel == 4) {
-				
-			}
-			else if (sel == 0) break;
 		}
 	}
 	
