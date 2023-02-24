@@ -80,7 +80,6 @@ public class PassbookManager {
 		 * 얼마인지 받고
 		 * 상대 계좌를 받고
 		 */
-		
 		var clientMngr = ClientManager.getInstance();
 		
 		System.out.print("Enter your passbook number want to withdraw : ");
@@ -114,7 +113,7 @@ public class PassbookManager {
 				System.out.println(outMoney + ", transfer from [" + bookList.get(outBook).getBookNum() + "]");
 				System.out.println("to [" + targetBook.getBookNum() + "]");
 				bookList.get(outBook).setMoney(-outMoney);
-				clientMngr.clients.get(transUsrIdx).getBookList().get(transBookIdx).setMoney(outBook);
+				clientMngr.clients.get(transUsrIdx).getBookList().get(transBookIdx).setMoney(outMoney);
 			}
 		}
 	}
