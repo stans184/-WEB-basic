@@ -31,6 +31,8 @@ public class PassbookManager {
 				}
 			}
 		}
+		
+		returnBookList();
 	}
 	
 	public void delete() {
@@ -43,6 +45,8 @@ public class PassbookManager {
 			System.out.println(bookNum + ", deleted");
 			bookList.remove(idx);
 		}
+		
+		returnBookList();
 	}
 	
 	public void deposit() {
@@ -58,6 +62,8 @@ public class PassbookManager {
 			System.out.println(inMoney + ", deposited in [" + bookList.get(idx).getBookNum() + "]");
 			bookList.get(idx).setMoney(inMoney);
 		}
+		
+		returnBookList();
 	}
 	
 	public void withdraw() {
@@ -73,13 +79,11 @@ public class PassbookManager {
 			System.out.println(outMoney + ", withdrawn from [" + bookList.get(idx).getBookNum() + "]");
 			bookList.get(idx).setMoney(-outMoney);
 		}
+		
+		returnBookList();
 	}
 	
 	public void transfer() {
-		/* 출금할 계좌를 받고
-		 * 얼마인지 받고
-		 * 상대 계좌를 받고
-		 */
 		var clientMngr = ClientManager.getInstance();
 		
 		System.out.print("Enter your passbook number want to withdraw : ");
@@ -141,7 +145,8 @@ public class PassbookManager {
 		else System.out.println(bookList);
 	}
 	
-	public ArrayList<PassBook> returnList(){
-		return bookList;
+	public void returnBookList(){
+		var clientMngr = ClientManager.getInstance();
+		clientMngr.clients.get(clientMngr.getLogIdenifier()).setBookList(bookList);
 	}
 }

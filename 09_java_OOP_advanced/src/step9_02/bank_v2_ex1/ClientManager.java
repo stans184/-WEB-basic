@@ -91,7 +91,7 @@ public class ClientManager {
 		if (getLogIdenifier() == -1) System.out.println("Nobody Log-in");
 		else {
 			System.out.println(clients.get(getLogIdenifier()).getClientId() + ", Log-Out");
-			clients.get(getLogIdenifier()).setBookList(bookMngr.returnList());
+			bookMngr.returnBookList();
 			bookMngr.bookList = null;
 			setLogIdenifier(-1);
 		}

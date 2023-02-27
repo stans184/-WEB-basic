@@ -59,7 +59,6 @@ public class Bank {
 			else if (sel == 3) bookMngr.print();
 			else if (sel == 4) bookMngr.deposit();
 			else if (sel == 5) bookMngr.withdraw();
-			// 이체는 아직... 컨디션좀 돌아오고 하자
 			else if (sel == 6) bookMngr.transfer();
 			else if (sel == 0) {
 				clientMngr.logOut();
