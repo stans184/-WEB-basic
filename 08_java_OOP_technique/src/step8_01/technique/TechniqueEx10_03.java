@@ -20,13 +20,27 @@ import java.util.*;
  *   Map<Object,Object> temp4 = new TreeMap<Object, Object>();
  * */
 
-interface Person{}
+interface Person{
+	public void walk();
+}
 
-class Children implements Person{}
+class Children implements Person{
 
-class Student implements Person{}
+	@Override
+	public void walk() {System.out.println("children walk");}
+}
 
-class Adult implements Person{}
+class Student implements Person{
+
+	@Override
+	public void walk() {System.out.println("Student walk");}
+}
+
+class Adult implements Person{
+
+	@Override
+	public void walk() {System.out.println("Adult walk");}
+}
 
 public class TechniqueEx10_03 {
 
@@ -40,6 +54,25 @@ public class TechniqueEx10_03 {
 		Person c2 = new Children();
 		Person s2 = new Student();
 		Person a2 = new Adult();
+		
+		Person[] testArr1 = {c2, s2, a2};
+		
+		System.out.println(c2 instanceof Person);
+		
+		for (Person person : testArr1) person.walk();
+		
+//		children walk
+//		Student walk
+//		Adult walk
+		
+		ArrayList<Person> testArr2 = new ArrayList<Person>();
+		testArr2.add(c2);
+		testArr2.add(s2);
+		testArr2.add(a2);
+		
+		for (Person person : testArr2) {
+			person.walk();
+		}
 		
 		// 예시 1)
 		ArrayList<Integer> list1 = new ArrayList<Integer>();

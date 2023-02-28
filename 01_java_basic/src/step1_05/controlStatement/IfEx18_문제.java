@@ -19,6 +19,7 @@ public class IfEx18_문제 {
 		Random rm = new Random();
 		
 		int com = rm.nextInt(3);	// 랜덤으로 저장
+		System.out.println(com);
 		System.out.println("plz input number : 0 : 가위 , 1 : 바위 , 2 : 보 ");
 		int me = sc.nextInt();		// 키보드로 입력받아 저장
 		
@@ -33,7 +34,7 @@ public class IfEx18_문제 {
 			}
 		}
 		else {
-			System.out.println("win");
+			System.out.println("lose");
 		}
 		
 		sc.close();
