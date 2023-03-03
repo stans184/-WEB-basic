@@ -95,7 +95,6 @@ public class MemberManager {
 			System.out.println(memberList.get(getMemId()).getId() + ", logOut");
 			AccountManager.getInstance().accountList = null;
 			setMemId(-1);
-			BankDB.getInstance().save();
 		}
 	}
 	

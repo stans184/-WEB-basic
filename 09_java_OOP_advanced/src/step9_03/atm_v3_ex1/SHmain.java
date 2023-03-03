@@ -1,27 +1,27 @@
 package step9_03.atm_v3_ex1;
 
-import java.io.IOException;
-
 public class SHmain {
 
 	public static void main(String[] args) {
 		try {
 			new ShinHanAtm().showMainMenu();
-		} catch (IOException e) {
-			System.out.println(e);
-		}
+		} catch (Exception e) {e.printStackTrace();}
 	}
 }
 
 /*
  * ?? 여기서는 file 이지만, DB 와 어떤 방식으로 소통을 하는 코드를 짜야할까
  * 	> 객체에다가 저장하고, 최소한으로 통신하는게 나을라나?
- *	> 아님 모든 순간을 DB 와 연동하며 진행하는게 나을라나?
+ *	> 아님 계좌나 멤버 정보가 변하는 모든 순간을 DB 와 연동하며 진행하는게 나을라나?
  *
  * ?? class 에서 다른 class 를 불러와야 할 때, member 변수 자리에서 불러오는 거랑, method 실행하
  * 	  불러오는 거랑 어느 면에서 더 좋은 코드인가?
  * 	> 모든 method 에서 사용하면?
  * 	> 소수의 method 에서만 사용한다면?
+ * 
+ * ?? 객체의 singleton 과 DB 의 singleton 중 어느게 더 중요할까
+ *  > DB connection 을 SingleTon 으로 객체로 만들고
+ *  > 그 안에 DB 와의 연결도 여러개 만들어지면 안되니까 SingleTon 형식으로 진행??
  * 
  * accountManager
  * - make 하면 바로 created 가 안넘어옴, 근데 3개 리미트는 제대로 동작함

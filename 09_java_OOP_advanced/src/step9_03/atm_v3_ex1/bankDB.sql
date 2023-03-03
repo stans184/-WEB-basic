@@ -1,0 +1,1 @@
+SELECT m.id, m.name, m.password, a.acc_number, a.money FROM member m INNER JOIN account a ON m.id = a.member_id;
