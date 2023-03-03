@@ -93,7 +93,10 @@ public class MyArrayList<T>{
 		else return false;
 	}
 	
-	public T get(int idx) {return (T) arr[idx];}
+	public T get(int idx) {
+		if(arr == null) return null; 
+		return (T) arr[idx];
+	}
 	
 	
 	public void clear() {

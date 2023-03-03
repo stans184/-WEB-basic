@@ -10,11 +10,11 @@ public class ShinHanAtm {
 	public void showMainMenu() throws IOException {
 		
 		var membMngr = MemberManager.getInstance();
-		
-		if (BankDB.getInstance().file != null) BankDB.getInstance().load();
+		var db = BankDB.getInstance();
 		
 		while (true) {
 			System.out.println();
+			System.out.println("[ShinHan BANK]");
 			System.out.println("[1. Join]");
 			System.out.println("[2. Log-in]");
 			System.out.println("[3. Show memberList]");
@@ -25,9 +25,7 @@ public class ShinHanAtm {
 			if (sel == 1) membMngr.join();
 			else if (sel == 2) membMngr.logIn();
 			else if (sel == 3) membMngr.showMemberList();
-			else if (sel == 0) {
-				break;
-			}
+			else if (sel == 0) {db.save(); break;}
 		}
 	}
 }

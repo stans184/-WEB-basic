@@ -82,6 +82,7 @@ public class MemberManager {
 				else {
 					System.out.println(inId + ", logIn SUCCESS");
 					setMemId(idx);
+					AccountManager.getInstance().accountList = memberList.get(idx).getAccList();
 					memberMenu();
 				}
 			}
@@ -92,8 +93,8 @@ public class MemberManager {
 		if (getMemId() == -1) System.out.println("NOBODY login");
 		else {
 			System.out.println(memberList.get(getMemId()).getId() + ", logOut");
-			setMemId(-1);
 			AccountManager.getInstance().accountList = null;
+			setMemId(-1);
 			BankDB.getInstance().save();
 		}
 	}

@@ -15,12 +15,15 @@ public class AccountManager {
 	Random rm = new Random();
 	Scanner sc = new Scanner(System.in);
 	
+//	이렇게 하면 memIdx 가 제대로 반영이 안됨? 이유는?
+//	MemberManager mb = MemberManager.getInstance();
+//	int memIdx = mb.getMemId();
 	public final int MAX_CNT = 3;
-	MemberManager memberMngr = MemberManager.getInstance();
-	int memIdx = memberMngr.getMemId();
 	MyArrayList<Account> accountList;
 	
 	public int[] accountIdxCheck(int num) {
+		var memberMngr = MemberManager.getInstance();
+		
 		int[] idx = {-1, -1};
 		
 		for (int i = 0; i < memberMngr.memberList.size(); i++) {
@@ -64,6 +67,7 @@ public class AccountManager {
 		if (accountList == null) {
 			accountList = new MyArrayList<>();
 			int newNum = rm.nextInt(899999)+100000;
+			System.out.println(newNum + ", Created");
 			accountList.add(new Account(newNum));
 		}
 		else {
@@ -106,7 +110,8 @@ public class AccountManager {
 	
 	public boolean lackCheck(int idx, int money) {
 		boolean check = false;
-		accountList = memberMngr.memberList.get(memIdx).getAccList();
+		var memberMngr = MemberManager.getInstance();
+		accountList = memberMngr.memberList.get(memberMngr.getMemId()).getAccList();
 		
 		if (accountList.get(idx).getMoney() < money) check = true;
 		
@@ -132,7 +137,7 @@ public class AccountManager {
 	public void transfer() throws IOException {
 		showAllAcount(true);
 		System.out.print("Select Account to transfer money : ");
-		int sel = sc.nextInt();
+		int sel = sc.nextInt()-1;
 		
 		System.out.print("How much money ? ");
 		int transMoney = sc.nextInt();
@@ -145,11 +150,15 @@ public class AccountManager {
 			
 			accountList.get(sel).setMoney(-transMoney);
 			saveList();
+			
+			var memberMngr = MemberManager.getInstance();
 			memberMngr.memberList.get(idx[0]).getAccList().get(idx[1]).setMoney(transMoney);
+			System.out.println(accountList.get(sel).getNum() + " -> " + transMoney + " -> " + memberMngr.memberList.get(idx[0]).getAccList().get(idx[1]).getNum());
 		}
 	}
 	
 	public void saveList() {
-		memberMngr.memberList.get(memIdx).setAccList(accountList);
+		var memberMngr = MemberManager.getInstance();
+		memberMngr.memberList.get(memberMngr.getMemId()).setAccList(accountList);
 	}
 }
