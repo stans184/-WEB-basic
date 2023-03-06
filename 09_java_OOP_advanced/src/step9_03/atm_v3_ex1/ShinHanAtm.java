@@ -10,6 +10,8 @@ public class ShinHanAtm {
 
 	public void showMainMenu() throws IOException, ClassNotFoundException, SQLException {
 		
+		BankDB.getInstance().load();
+		
 		var membMngr = MemberManager.getInstance();
 		
 		while (true) {

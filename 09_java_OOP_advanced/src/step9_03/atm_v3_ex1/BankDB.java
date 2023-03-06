@@ -111,9 +111,22 @@ public class BankDB {
 		ResultSet rs = stmt.executeQuery(outSql);
 		
 		while (rs.next()) {
-			int idx = Integer.parseInt(rs.getString("id"))-1;
+			// 맨앞에 아이디를 읽고 
+			int idx = Integer.parseInt(rs.getString("id"));
 			
-			if (memberMngr.memberList.size() == idx) continue;
+			// 만약 아이디가 멤버리스트의 크기와 같다면 그냥 계좌만 추가
+			if (memberMngr.memberList.size() == idx) {
+				int accNum = Integer.parseInt(rs.getString("acc_number"));
+				int money = Integer.parseInt(rs.getString("money"));
+				
+				// 해당 member 특정하고, 계좌 추가
+				var memb = memberMngr.memberList.get(idx-1);
+				var accList = memb.getAccList();
+				var newAcc = new Account(accNum);
+				newAcc.setMoney(money);
+				accList.add(newAcc);
+				memb.setAccList(accList);
+			}
 			else {
 				String id = rs.getString("name");
 				String pw = rs.getString("password");
@@ -121,6 +134,13 @@ public class BankDB {
 				int money = Integer.parseInt(rs.getString("money"));
 				
 				Member newMem = new Member(id, pw);
+				var newAcc = new Account(accNum);
+				newAcc.setMoney(money);
+				
+				MyArrayList<Account> accList = new MyArrayList<>();
+				accList.add(newAcc);
+				
+				newMem.setAccList(accList);
 				memberMngr.memberList.add(newMem);
 			}
 		}
@@ -134,6 +154,6 @@ public class BankDB {
 	public void delete() throws ClassNotFoundException, SQLException {
 		var db = getConnection();
 		
-		String deleteSql = "DELETE FROM testDB";
+		String deleteSql = "DELETE FROM member";
 	}
 }

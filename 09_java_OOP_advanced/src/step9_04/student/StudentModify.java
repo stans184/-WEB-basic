@@ -6,11 +6,8 @@ public class StudentModify {
 	
 	public StudentModify(StudentDAO studentDAO) {this.studentDAO = studentDAO;}
 	
-	public void modify(String id) {
-		if (!checkId(id)) System.out.println("동일한 아이디가 없습니다.");
-		else {
-			
-		}
+	public void modify(StudentVO studentVO) {
+		studentDAO.modify(studentVO);
 	}
 	
 	public boolean checkId(String id) {

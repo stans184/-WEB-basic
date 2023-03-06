@@ -9,6 +9,7 @@ public class Controller {
 	private StudentSelect select;	
 	private StudentSelectAll selectAll;
 	private StudentModify modify;
+	private StudentRemove remove;
 	
 	public Controller() {
 		stDAO = new StudentDAO();	
@@ -16,8 +17,17 @@ public class Controller {
 		select = new StudentSelect(stDAO);
 		selectAll = new StudentSelectAll(stDAO);
 		modify = new StudentModify(stDAO);
+		remove = new StudentRemove(stDAO);
 	}
 	
+	public StudentRemove getRemove() {
+		return remove;
+	}
+
+	public void setRemove(StudentRemove remove) {
+		this.remove = remove;
+	}
+
 	public StudentDAO getStDAO() {
 		return stDAO;
 	}

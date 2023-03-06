@@ -15,6 +15,14 @@ public class StudentDAO {
 		return StudentRepository.getStDB().get(id);
 	}
 	
+	public void modify(StudentVO st) {
+		StudentRepository.getStDB().replace(st.getId(), st);
+	}
+	
+	public void remove(StudentVO st) {
+		StudentRepository.getStDB().remove(st.getId());
+	}
+	
 	// select all 을 위한 method
 	public Map<String , StudentVO> getStudentDB(){
 		return StudentRepository.getStDB();

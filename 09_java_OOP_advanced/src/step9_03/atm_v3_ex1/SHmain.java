@@ -3,16 +3,21 @@ package step9_03.atm_v3_ex1;
 public class SHmain {
 
 	public static void main(String[] args) {
-		try {
-			new ShinHanAtm().showMainMenu();
-		} catch (Exception e) {e.printStackTrace();}
+		try {new ShinHanAtm().showMainMenu();} catch (Exception e) {e.printStackTrace();}
 	}
 }
+
+/*
+ * mySQL save, load 구현 완료
+ *  > 중복저장 같은 이슈 해결해야함
+ *  > account 가 없을 때, 제대로 저장되지 않음
+ */
 
 /*
  * ?? 여기서는 file 이지만, DB 와 어떤 방식으로 소통을 하는 코드를 짜야할까
  * 	> 객체에다가 저장하고, 최소한으로 통신하는게 나을라나?
  *	> 아님 계좌나 멤버 정보가 변하는 모든 순간을 DB 와 연동하며 진행하는게 나을라나?
+ *	> 4번 예제를 참고해서 다시 생각해보자, VO, DAO 로 처리하는 방식
  *
  * ?? class 에서 다른 class 를 불러와야 할 때, member 변수 자리에서 불러오는 거랑, method 실행하
  * 	  불러오는 거랑 어느 면에서 더 좋은 코드인가?
