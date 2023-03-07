@@ -88,19 +88,21 @@ public class BankDB {
 		memberMngr.memberList = new MyArrayList<>();
 		
 		Statement stmt = db.createStatement();
-//		String outSql = "SELECT id, name, email FROM testDB ORDER BY id";
-//		ResultSet rs = stmt.executeQuery(outSql);
-//		
-//		while (rs.next()) {
-//			int id = Integer.parseInt(rs.getString("id"));
-//			String name = rs.getString("name");
-//			String email = rs.getString("email");
-//			
-//			System.out.println(id + " / " + name + " / " + email);
-//		}
-//		rs.close();
 		
 		/*
+		String outSql = "SELECT id, name, email FROM testDB ORDER BY id";
+		ResultSet rs = stmt.executeQuery(outSql);
+		
+		while (rs.next()) {
+			int id = Integer.parseInt(rs.getString("id"));
+			String name = rs.getString("name");
+			String email = rs.getString("email");
+			
+			System.out.println(id + " / " + name + " / " + email);
+		}
+		rs.close();
+		
+		
 		 * load 구현중
 		 * id 에 따라서 멤버는 받고 안받고를 정해야 하는데 do while?
 		 * 어케할지 고민중

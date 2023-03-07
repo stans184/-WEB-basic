@@ -8,6 +8,7 @@ public class StudentModify {
 	
 	public void modify(StudentVO studentVO) {
 		studentDAO.modify(studentVO);
+		System.out.println(studentVO.getId() + " 수정되었습니다.");
 	}
 	
 	public boolean checkId(String id) {
