@@ -1,6 +1,7 @@
 package step9_04.customer_ex1;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 /*
  * main > controller > service > DAO > DB
@@ -42,16 +43,53 @@ public class CSMain {
 				try {csInsert.insert(new CSDTO(id, pw, email));} catch (Exception e) {e.printStackTrace();}
 			}
 			else if (sel == 2) {
-				controller.getCsModify();
+				System.out.print("Enter your ID : ");
+				String id = sc.next();
+				System.out.print("Enter your pw : ");
+				String pw = sc.next();
+				
+				var csModify = controller.getCsModify();
+				
+				try {
+					if (csModify.checkId(id)) {
+						if (csModify.checkPw(id, pw)) {
+							System.out.print("Enter new PW : ");
+							String newPw = sc.next();
+							System.out.print("Enter new email : ");
+							String newEmail = sc.next();
+							
+							csModify.modify(id, newPw, newEmail);
+						}
+						else System.out.println("Wrong PW");
+					}
+					else System.out.println("Cannot found " + id);
+				} catch (ClassNotFoundException | SQLException e) {e.printStackTrace();}
 			}
 			else if (sel == 3) {
-				controller.getCsDelete();
+				System.out.print("Enter ID : ");
+				String id = sc.next();
+				
+				var csDelete = controller.getCsDelete();
+				try {csDelete.delete(id);} catch (ClassNotFoundException | SQLException e) {e.printStackTrace();}
 			}
 			else if (sel == 4) {
+				System.out.print("Enter ID : ");
+				String id = sc.next();
 				
+				var csSelect = controller.getCsSelect();
+				try {
+					CSDTO customer = csSelect.select(id);
+					customer.print();
+				} catch (ClassNotFoundException | SQLException e) {e.printStackTrace();}
 			}
 			else if (sel == 5) {
-				
+				try {
+					Map<Integer, CSDTO> csList = controller.getCsSelectAll().select();
+					
+					for (int num : csList.keySet()) {
+						csList.get(num).print();
+					}
+				} catch (ClassNotFoundException | SQLException e) {e.printStackTrace();}
 			}
 			else if (sel == 0) {
 				System.out.println("Program Exit");
