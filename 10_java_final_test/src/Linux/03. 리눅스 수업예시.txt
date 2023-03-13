@@ -65,10 +65,12 @@
 	$ls -al 							> 목록 확인(숨겨진목록 추가 , 상세정보 추가)
 	$ls -al file_repo1					> 목록 확인(숨겨진목록 추가 , 상세정보 추가)
 
-	$sudo chown root.root file_repo2 -R > 해당 디렉터리와 하위 디렉터리의 소유주와 소유그룹을 root로 변경
+	$sudo chown root.root file_repo2 -R > 해당 디렉터리와 하위 디렉터리의 소유주와 소유그룹을 root로 변경 (안에 있는 모든것들을)
 	$ls -al 							> 목록 확인(숨겨진목록 추가 , 상세정보 추가)
 	$ls -al file_repo2					> 목록 확인(숨겨진목록 추가 , 상세정보 추가)
 
+
+[ 파일 편집 ]
 
 	$mkdir log_test						> test폴더 생성			
 	$ls -al 							> 목록 확인(숨겨진목록 추가 , 상세정보 추가)
@@ -100,7 +102,7 @@
 
 
 
-[ 편집기 ]
+[ 편집기 ]	☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
 
 	$sudo apt-get install -y vim      > vim 에디터 설치
 
